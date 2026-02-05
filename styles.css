@@ -1,0 +1,73 @@
+.a1{
+    background-color: chartreuse;
+    color:fuchsia;
+    height: 50px;
+    width: 150px;
+    font-size: 25px;
+}
+
+body {
+    background-image: url(birds.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+section{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    gap: 50px;
+}
+
+/* Кнопка-триггер */
+.dropbtn {
+    background-color: #e96bb4;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-items:unsafe;
+  }
+  
+  /* Контейнер (нужен для позиционирования списка) */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Блок со списком: скрыт по умолчанию */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    margin-top: 5px; /* Небольшой отступ от кнопки */
+  }
+  
+  /* Ссылки внутри списка */
+  .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #e96bb4;
+  }
+  
