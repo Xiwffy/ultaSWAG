@@ -1,11 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Анимация</title>
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .menu {
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .tri {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 70px solid;
+            margin: 20px;
+            display: inline-block;
+        }
+        
+        /* Оригинальные вращающиеся треугольники */
+        .tri1 { border-bottom-color:aqua; animation: r 3s infinite linear; }
+        .tri2 { border-bottom-color:plum; animation: r 4s infinite linear; }
+        .tri3 { border-bottom-color: orangered; animation: r 5s infinite linear; }
+        .tri4 { border-bottom-color: seagreen; animation: r 6s infinite linear; }
+        
+        /* Дополнительные эффекты для треугольников */
+        .tri-scale { animation: scaleEffect 2s infinite alternate ease-in-out; }
+        .tri-translate { animation: translateEffect 3s infinite alternate ease-in-out; }
+        .tri-combined { animation: combinedEffect 4s infinite alternate ease-in-out; }
+        
+        .circle {
+            width: 80px;
+            height: 80px;
+            background: orange;
+            border-radius: 50%;
+            margin: 40px auto;
+            animation: j 2s infinite;
+        }
+        
+        /* Дополнительные круги с разными эффектами */
+        .circle-scale {
+            background: #ff6b6b;
+            animation: scaleEffect 1.5s infinite alternate ease-in-out;
+        }
+        
+        .circle-translate {
+            background: #4ecdc4;
+            animation: translateEffect 2.5s infinite alternate ease-in-out;
+        }
+        
+        .circle-rotate {
+            background: #ffe66d;
+            animation: rotateEffect 3s infinite linear;
+        }
+        
+        /* Ключевые кадры для Scale эффекта */
+        @keyframes scaleEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.5); }
+        }
+        
+        /* Ключевые кадры для Translate эффекта */
+        @keyframes translateEffect {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(50px); }
+        }
+        
+        /* Ключевые кадры для Rotate эффекта */
+        @keyframes r {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Комбинированный эффект */
+        @keyframes combinedEffect {
+            0% { 
+                transform: translateY(0) rotate(0deg) scale(1); 
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg) scale(1.2); 
+            }
+            100% { 
+                transform: translateY(0) rotate(360deg) scale(1); 
+            }
+        }
+        
+        /* Вертикальный прыжок */
+        @keyframes j {
+            50% { transform: translateY(-80px); }
+        }
+        
+        /* Контейнер для новых фигур */
+        .new-shapes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            gap: 30px;
+        }
+        
+        .shape-container {
+            text-align: center;
+            color: white;
+            margin: 10px;
+        }
+        
+        .shape-label {
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        
+        /* Кнопка */
+        button {
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s;
+        }
+        
+        button:hover {
+            transform: scale(1.1);
+            background: #45b7b0;
+        }
+        
+        .controls {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>не ну реально уходи</h1>
+    <div class="menu">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+    
+    <div class="controls">
+        <h3>Треугольники с вращением (Rotate)</h3>
+    </div>
+    
+    <div style="text-align:center">
+        <div class="tri tri1"></div>
+        <div class="tri tri2"></div>
+        <div class="tri tri3"></div>
+        <div class="tri tri4"></div>
+    </div>
+    
+    <div class="controls">
+        <h3>Новые фигуры с различными эффектами</h3>
+    </div>
+    
+    <div class="new-shapes">
+        <div class="shape-container">
+            <div class="tri tri1 tri-scale"></div>
+            <div class="shape-label">Scale (Масштабирование)</div>
+        </div>
+        
+        <div class="shape-container">
+            <div class="tri tri2 tri-translate"></div>
+            <div class="shape-label">Translate (Перемещение)</div>
+        </div>
+        
+        <div class="shape-container">
+            <div class="tri tri3 tri-combined"></div>
+            <div class="shape-label">Все эффекты вместе</div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <h3>Круги с различными эффектами</h3>
+    </div>
+    
+    <div class="new-shapes">
+        <div class="shape-container">
+            <div class="circle circle-scale"></div>
+            <div class="shape-label">Circle Scale</div>
+        </div>
+        
+        <div class="shape-container">
+            <div class="circle circle-translate"></div>
+            <div class="shape-label">Circle Translate</div>
+        </div>
+        
+        <div class="shape-container">
+            <div class="circle circle-rotate"></div>
+            <div class="shape-label">Circle Rotate</div>
+        </div>
+        
+        <div class="shape-container">
+            <div class="circle"></div>
+            <div class="shape-label">Original Jump</div>
+        </div>
+    </div>
+    
+    <a href="index.html">
+        <button>дмое</button>
+    </a>
 </body>
 </html>

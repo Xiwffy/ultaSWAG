@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Анимация</title>
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .menu {
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .tri {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 70px solid;
+            margin: 20px;
+            display: inline-block;
+        }
+        
+        .tri1 { border-bottom-color: red; animation: r 3s infinite linear; }
+        .tri2 { border-bottom-color: blue; animation: r 4s infinite linear; }
+        .tri3 { border-bottom-color: yellow; animation: r 5s infinite linear; }
+        .tri4 { border-bottom-color: green; animation: r 6s infinite linear; }
+        
+        .circle {
+            width: 80px;
+            height: 80px;
+            background: orange;
+            border-radius: 50%;
+            margin: 40px auto;
+            animation: j 2s infinite;
+        }
+        
+        @keyframes r {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes j {
+            50% { transform: translateY(-80px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+    
+    <div style="text-align:center">
+        <div class="tri tri1"></div>
+        <div class="tri tri2"></div>
+        <div class="tri tri3"></div>
+        <div class="tri tri4"></div>
+    </div>
+    
+    <div class="circle"></div>
+</body>
+</html>
