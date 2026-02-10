@@ -1,0 +1,24 @@
+/* Затемнение фона вокруг окна (нативно для <dialog>) */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
